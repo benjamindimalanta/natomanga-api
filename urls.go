@@ -1,12 +1,12 @@
-package manganatoapi
+package natomangaapi
 
 const (
-	manganatoURL              string = "manganato.com"
-	manganatoURLWithHTTPS            = "https://" + manganatoURL
-	readManganatoURL                 = "chap" + manganatoURL
-	readManganatoURLWihtHTTPS        = "https://" + readManganatoURL
-	searchMangaURL                   = manganatoURLWithHTTPS + "/search/story/"
-	specificMangaURL                 = readManganatoURLWihtHTTPS + "/manga-"
-	searchMangaByAuthorURL           = manganatoURLWithHTTPS + "/author/story/"
-	searchMangaByGenreURL            = manganatoURLWithHTTPS + "/genre-"
+	natomangaURL              string = "natomanga.com"
+	natomangaURLWithHTTPS            = "https://" + natomangaURL
+	readnatomangaURL                 = "chap" + natomangaURL
+	readnatomangaURLWihtHTTPS        = "https://" + readnatomangaURL
+	searchMangaURL                   = natomangaURLWithHTTPS + "/search/story/"
+	specificMangaURL                 = readnatomangaURLWihtHTTPS + "/manga-"
+	searchMangaByAuthorURL           = natomangaURLWithHTTPS + "/author/story/"
+	searchMangaByGenreURL            = natomangaURLWithHTTPS + "/genre-"
 )
