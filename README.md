@@ -1,6 +1,6 @@
-# manganato-api
+# natomanga-api
 
-Unofficial Manganato web scraper written in Go using [gocolly](https://github.com/gocolly/colly).
+Unofficial natomanga web scraper written in Go using [gocolly](https://github.com/gocolly/colly).
 
 ## install
 
@@ -55,7 +55,7 @@ Updated : Dec 14,2020 - 04:53
 3. search specific manga by chapter id, returns pages of that chapter
 4. search mangas by author id
 5. search mangas by genre id
-6. get list of the latest updated mangas (manganato's home page)
+6. get list of the latest updated mangas (natomanga's home page)
 
 ## credits
 
