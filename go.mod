@@ -1,4 +1,4 @@
-module github.com/kaikaew13/manganato-api
+module github.com/benjamindimalanta/natomanga-api
 
 go 1.16
 
