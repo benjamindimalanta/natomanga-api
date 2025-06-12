@@ -1,4 +1,4 @@
-package manganatoapi
+package natomangaapi
 
 import (
 	"fmt"
@@ -44,7 +44,7 @@ func getLatestUpdatedManga() []Manga {
 		fmt.Println("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", e)
 	})
 
-	c.Visit(manganatoURLWithHTTPS)
+	c.Visit(natomangaURLWithHTTPS)
 	c.Wait()
 
 	return mgs
