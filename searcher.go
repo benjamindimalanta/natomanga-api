@@ -27,18 +27,35 @@ type Searchable interface {
 }
 
 func initCrawler() {
-c = colly.NewCollector(
-    colly.AllowedDomains(
-        "natomanga.com",
-        "www.natomanga.com",
-        "readnatomanga.com",
-        "www.readnatomanga.com",
-    ),
-    colly.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "+
-        "AppleWebKit/537.36 (KHTML, like Gecko) "+
-        "Chrome/114.0.0.0 Safari/537.36"),
-    colly.MaxDepth(2),
-    colly.Async(true),
+func initCrawler() {
+    c = colly.NewCollector(
+        colly.AllowedDomains(
+            "natomanga.com",
+            "www.natomanga.com",
+            "readnatomanga.com",
+            "www.readnatomanga.com",
+        ),
+        colly.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
+            "AppleWebKit/537.36 (KHTML, like Gecko) " +
+            "Chrome/114.0.0.0 Safari/537.36"),
+        colly.MaxDepth(2),
+        colly.Async(true),
+    )
+
+    // ⬇️ ADD THIS RIGHT HERE
+    c.OnRequest(func(r *colly.Request) {
+        r.Headers.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "+
+            "AppleWebKit/537.36 (KHTML, like Gecko) "+
+            "Chrome/114.0.0.0 Safari/537.36")
+        r.Headers.Set("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+        r.Headers.Set("Accept-Language", "en-US,en;q=0.5")
+        r.Headers.Set("Referer", "https://www.natomanga.com/")
+    })
+
+    // Optional: you can still add logging or retries here
+    // extensions.RandomUserAgent(c) ← not needed anymore
+}
+
 )
 
 
