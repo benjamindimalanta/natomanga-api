@@ -5,7 +5,7 @@ Unofficial Manganato web scraper written in Go using [gocolly](https://github.co
 ## install
 
 ```
-go get -u github.com/kaikaew13/manganato-api
+go get -u github.com/benjamindimalanta/natomanga-api
 ```
 
 ## usage
@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"log"
 
-	nato "github.com/kaikaew13/manganato-api"
+	nato "github.com/benjamindimalanta/natomanga-api"
 )
 
 func main() {
