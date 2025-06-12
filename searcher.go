@@ -28,14 +28,15 @@ type Searchable interface {
 
 func initCrawler() {
 	c = colly.NewCollector(
-		colly.AllowedDomains(
-			natomangaURL,
-			readnatomangaURL,
-		),
-		colly.MaxDepth(2),
-		colly.Async(true),
-		// colly.Debugger(&debug.LogDebugger{}),
-	)
+    colly.AllowedDomains(
+        natomangaURL,
+        readnatomangaURL,
+        "www.natomanga.com",       // ← add this
+        "www.readnatomanga.com",   // ← and this
+    ),
+    colly.MaxDepth(2),
+    colly.Async(true),
+)
 
 	extensions.RandomUserAgent(c)
 }
