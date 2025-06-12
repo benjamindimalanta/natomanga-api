@@ -1,4 +1,4 @@
-package manganatoapi
+package natomangaapi
 
 import (
 	"fmt"
@@ -18,7 +18,7 @@ func changeSpaceToUnderscore(s string) string {
 }
 
 // refactored code uses in getMangaListByAuthorID
-// and getMangaList since manganato has same
+// and getMangaList since natomanga has same
 // web page structure for both urls
 func getMangaListHelper(url string) []Manga {
 	mgs := []Manga{}
