@@ -1,4 +1,5 @@
-package manganatoapi
+package natomangaapi
+
 
 import (
 	"fmt"
