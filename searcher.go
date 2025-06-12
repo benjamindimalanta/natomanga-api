@@ -29,14 +29,15 @@ type Searchable interface {
 func initCrawler() {
 	c = colly.NewCollector(
     colly.AllowedDomains(
-        natomangaURL,
-        readnatomangaURL,
-        "www.natomanga.com",       // ← add this
-        "www.readnatomanga.com",   // ← and this
+        "natomanga.com",
+        "www.natomanga.com",       // ← This is critical
+        "readnatomanga.com",
+        "www.readnatomanga.com",
     ),
     colly.MaxDepth(2),
     colly.Async(true),
 )
+
 
 	extensions.RandomUserAgent(c)
 }
