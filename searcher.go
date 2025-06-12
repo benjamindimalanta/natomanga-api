@@ -48,7 +48,8 @@ c = colly.NewCollector(
 
 func cloneCrawler() *colly.Collector {
 	c2 := c.Clone()
-	extensions.RandomUserAgent(c2)
+	// extensions.RandomUserAgent(c2)
+
 	return c2
 }
 
