@@ -1,4 +1,4 @@
-package manganatoapi
+package natomangaapi
 
 import (
 	"errors"
@@ -16,7 +16,7 @@ var (
 	wg              sync.WaitGroup
 )
 
-// provides methods for fetching data from https://manganato.com
+// provides methods for fetching data from https://natomanga.com
 type Searcher struct {
 	MethodsDescription map[string]string
 }
@@ -29,8 +29,8 @@ type Searchable interface {
 func initCrawler() {
 	c = colly.NewCollector(
 		colly.AllowedDomains(
-			manganatoURL,
-			readManganatoURL,
+			natomangaURL,
+			readnatomangaURL,
 		),
 		colly.MaxDepth(2),
 		colly.Async(true),
@@ -58,7 +58,7 @@ func NewSearcher() Searcher {
 		"ReadMangaChapter":         "receives the manga id and chapter id then returns pages of that specific chapter",
 		"PickAuthor":               "receives the id of the author then returns a list of mangas by him/her",
 		"PickGenre":                "receives genre id then returns a list of mangas with that genre",
-		"SearchLatestUpdatedManga": "returns list of latest updated mangas from the first page of https://manganato.com",
+		"SearchLatestUpdatedManga": "returns list of latest updated mangas from the first page of https://natomanga.com",
 		"IsSearchable":             "returns whether the struct type implements Searchable interface",
 	}
 
@@ -71,7 +71,7 @@ func NewSearcher() Searcher {
 // and returns a list of mangas that match the name.
 // Each manga will have ID, Name, Author and Updated fields
 //
-// https://manganato.com/search/story/<name>
+// https://natomanga.com/search/story/<name>
 func (s *Searcher) SearchManga(name string) (*[]Manga, error) {
 	initCrawler()
 	defer deleteCrawler()
@@ -105,7 +105,7 @@ func (s *Searcher) SearchManga(name string) (*[]Manga, error) {
 // then returns that manga if found.
 // Every fields in Manga struct will be setted
 //
-// https://readmanganato.com/manga-<id>
+// https://readnatomanga.com/manga-<id>
 func (s *Searcher) PickManga(id string) (*Manga, error) {
 	initCrawler()
 	defer deleteCrawler()
@@ -128,7 +128,7 @@ func (s *Searcher) PickManga(id string) (*Manga, error) {
 // then returns pages of that specific chapter.
 // Each page will have ID and ImageURL setted
 //
-// https://readmanganato.com/manga-<mangaId>/chapter-<chapterId>
+// https://readnatomanga.com/manga-<mangaId>/chapter-<chapterId>
 func (s *Searcher) ReadMangaChapter(mangaId, chapterId string) (*[]Page, error) {
 	initCrawler()
 	defer deleteCrawler()
@@ -150,7 +150,7 @@ func (s *Searcher) ReadMangaChapter(mangaId, chapterId string) (*[]Page, error) 
 // receives the id of the author then returns a list of mangas by him/her.
 // Each manga will have ID, Name, Author and Updated fields
 //
-// https://manganato.com/author/story/<authorId>
+// https://natomanga.com/author/story/<authorId>
 func (s *Searcher) PickAuthor(authorId string) (*[]Manga, error) {
 	initCrawler()
 	defer deleteCrawler()
@@ -184,7 +184,7 @@ func (s *Searcher) PickAuthor(authorId string) (*[]Manga, error) {
 //
 //	Views and Description fields
 //
-// https://manganato.com/genre-<genreId>
+// https://natomanga.com/genre-<genreId>
 func (s *Searcher) PickGenre(genreId string) (*[]Manga, error) {
 	initCrawler()
 	defer deleteCrawler()
@@ -203,7 +203,7 @@ func (s *Searcher) PickGenre(genreId string) (*[]Manga, error) {
 }
 
 // returns list of latest updated mangas
-// from the first page of https://manganato.com.
+// from the first page of https://natomanga.com.
 // Each manga will have ID, Name and Author(Name only) fields
 func (s *Searcher) SearchLatestUpdatedManga() (*[]Manga, error) {
 	initCrawler()
